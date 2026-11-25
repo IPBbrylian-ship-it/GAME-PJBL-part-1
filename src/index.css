@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #04080f;
+    color: #d6dde6;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: none;
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  input,
+  textarea {
+    user-select: text;
+    -webkit-user-select: text;
+    touch-action: manipulation;
+  }
+}
+
+.touch-pan-y {
+  touch-action: pan-y;
+}
+
+.font-serif-horror {
+  font-family: 'Cinzel', 'Georgia', 'Times New Roman', serif;
+}
+
+.font-typewriter {
+  font-family: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Analog CRT scanline overlay (pure gradient, zero backdrop-filter) */
+.ps2-scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 2px,
+    rgba(2, 6, 14, 0.2) 3px,
+    rgba(2, 6, 14, 0.2) 4px
+  );
+  pointer-events: none;
+}
+
+/* Subtle procedural analog film grain using inline SVG turbulence data URI */
+.film-grain {
+  pointer-events: none;
+  opacity: 0.065;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+.frost-vignette {
+  pointer-events: none;
+  transition: opacity 250ms ease-out;
+}
